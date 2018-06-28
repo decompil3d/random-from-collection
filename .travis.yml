@@ -3,4 +3,3 @@ node_js:
   - node
 after_script:
   - npm run coveralls
- 
