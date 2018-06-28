@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/decompil3d/random-from-collection.svg?branch=master)](https://travis-ci.org/decompil3d/random-from-collection) [![Coverage Status](https://coveralls.io/repos/github/decompil3d/random-from-collection/badge.svg?branch=master)](https://coveralls.io/github/decompil3d/random-from-collection?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/decompil3d/random-from-collection.svg)](https://greenkeeper.io/)
+
+[![NPM](https://nodei.co/npm/random-from-collection.png?downloads=true&stars=true)](https://nodei.co/npm/random-from-collection/)
+
 # `random-from-collection`
 
 Get a random set of _n_ distinct values from a standard collection (i.e. `Map`, `Set`).
