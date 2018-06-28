@@ -1,0 +1,42 @@
+{
+  "name": "random-from-collection",
+  "version": "0.0.0",
+  "description": "Get a random set of n distinct values from a standard collection (i.e. Map, Set, Array)",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc -x fixtures/ -x test.js mocha test.js",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test:debug": "mocha --inspect-brk test.js",
+    "lint": "eslint --fix *.js fixtures/*.js",
+    "pretest": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decompil3d/random-from-collection.git"
+  },
+  "keywords": [
+    "random",
+    "collection",
+    "set",
+    "map",
+    "rand",
+    "distinct",
+    "unique"
+  ],
+  "author": "Jonathan Keslin <jonathan@jonathankeslin.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/decompil3d/random-from-collection/issues"
+  },
+  "homepage": "https://github.com/decompil3d/random-from-collection#readme",
+  "devDependencies": {
+    "assume": "^2.0.1",
+    "coveralls": "^3.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-godaddy": "^2.1.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-mocha": "^4.12.1",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2"
+  }
+}
