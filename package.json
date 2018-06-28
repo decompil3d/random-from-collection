@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc -x fixtures/ -x test.js mocha test.js",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test:debug": "mocha --inspect-brk test.js",
     "lint": "eslint --fix *.js fixtures/*.js",
     "pretest": "npm run lint"
@@ -30,6 +31,7 @@
   "homepage": "https://github.com/decompil3d/random-from-collection#readme",
   "devDependencies": {
     "assume": "^2.0.1",
+    "coveralls": "^3.0.1",
     "eslint": "^4.19.1",
     "eslint-config-godaddy": "^2.1.0",
     "eslint-plugin-json": "^1.2.0",
