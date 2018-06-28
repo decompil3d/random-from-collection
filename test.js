@@ -14,6 +14,12 @@ describe('random-from-collection', function () {
     assume(result).has.length(0);
   });
 
+  it('returns an empty array when howMany is -1', function () {
+    const result = randomFromCollection(fixtureSet, -1);
+    assume(result).is.an('array');
+    assume(result).has.length(0);
+  });
+
   it('returns an empty array when collection is empty', function () {
     const result = randomFromCollection(new Set([]), 5);
     assume(result).is.an('array');

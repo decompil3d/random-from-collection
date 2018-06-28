@@ -18,7 +18,7 @@
  * @public
  */
 const randomFromCollection = module.exports = function randomFromCollection(collection, howMany) {
-  if (howMany === 0)
+  if (howMany < 1)
     return [];
 
   const collectionSize = typeof collection.size === 'number' ? collection.size : collection.length;
