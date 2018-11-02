@@ -15,7 +15,7 @@ iterator. This pacakge handles that scenario.
 
 This package exports a single function that accepts a collection and a number of values to select. The collection can be
 any object that provides a `size` or `length` property/getter, and a `keys()` method that returns an iterator. In
-particular, it is useful for built-in types like Map and Set.
+particular, it is useful for built-in types like `Map` and `Set`.
 
 It can be used on Arrays, but wouldn't really be very efficient, as Array allows for direct access by index so it is
 much faster to use a package like [`array-shuffle`](https://www.npmjs.com/package/array-shuffle) instead.
@@ -39,6 +39,12 @@ const myMap = new Map([
 const mapResults = randomFromCollection(myMap, 2);
 /*
 ['a', 'c']
+*/
+
+// Need Map values?
+const mapResultsValues = mapResults.map(k => myMap.get(k));
+/*
+['A', 'C']
 */
 ```
 
