@@ -1,5 +1,7 @@
 # `random-from-collection`
 
+## 1.0.1
+
 - [#4] Improve JSDoc, README
 
 ## 1.0.0

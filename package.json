@@ -1,6 +1,6 @@
 {
   "name": "random-from-collection",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get a random set of n distinct values from a standard collection (i.e. Map, Set, Array)",
   "main": "index.js",
   "scripts": {
