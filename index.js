@@ -4,6 +4,7 @@
  */
 /**
  * @typedef OtherCollection<T>
+ * @template T
  * @prop {number} [size] The number of items in the collection
  * @prop {number} [length] The number of items in the collection
  * @prop {IteratorFn} keys Returns an iterator for the keys in the collection
@@ -15,6 +16,7 @@
  * @param {Map<T>|Set<T>|T[]|OtherCollection<T>} collection The collection from which to select values.
  * @param {number} howMany How many values to retrieve. If this exceeds `collection.size`, all values will be returned.
  * @returns {T[]} An array of distinct values, of length `howMany`
+ * @template T
  * @public
  */
 const randomFromCollection = module.exports = function randomFromCollection(collection, howMany) {
