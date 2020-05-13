@@ -1,5 +1,7 @@
 # `random-from-collection`
 
+## 1.1.0
+
 - [#19] Bump dependencies, improve JSDoc
 
 ## 1.0.2
