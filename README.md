@@ -9,7 +9,7 @@ Get a random set of _n_ distinct values from a standard collection (i.e. `Map`, 
 ## Why?
 
 Types like `Map` and `Set` do not allow for access by index, so pulling a random set of values requires using an
-iterator. This pacakge handles that scenario.
+iterator. This package handles that scenario.
 
 ## API
 
