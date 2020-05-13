@@ -1,19 +1,24 @@
 /**
- * @callback IteratorFn
- * @returns {Iterator} An iterator
+ * @callback IteratorFn<T>
+ * @returns {IterableIterator<T>} An iterator
+ * @template T
  */
 /**
- * @typedef OtherCollection<T>
- * @template T
+ * @typedef {Object} OtherCollection<T>
  * @prop {number} [size] The number of items in the collection
  * @prop {number} [length] The number of items in the collection
- * @prop {IteratorFn} keys Returns an iterator for the keys in the collection
+ * @prop {IteratorFn<T>} keys Returns an iterator for the keys in the collection
+ * @template T
  * Note: either `size` or `length` must be specified
+ */
+/**
+ * @typedef {Map<T, any>|Set<T>|T[]|OtherCollection<T>} AnyCollection
+ * @template T
  */
 /**
  * Get a random set of distinct values from the specified collection
  *
- * @param {Map<T>|Set<T>|T[]|OtherCollection<T>} collection The collection from which to select values.
+ * @param {AnyCollection<T>} collection The collection from which to select values.
  * @param {number} howMany How many values to retrieve. If this exceeds `collection.size`, all values will be returned.
  * @returns {T[]} An array of distinct values, of length `howMany`
  * @template T
@@ -23,25 +28,26 @@ const randomFromCollection = module.exports = function randomFromCollection(coll
   if (howMany < 1)
     return [];
 
+  // @ts-ignore
   const collectionSize = typeof collection.size === 'number' ? collection.size : collection.length;
 
   howMany = Math.min(howMany, collectionSize);
 
-  const indicies = getRandomIndicies(collectionSize, howMany);
-  indicies.sort((a, b) => a - b);
+  const indices = getRandomIndices(collectionSize, howMany);
+  indices.sort((a, b) => a - b);
 
-  return getValuesFromCollection(collection, indicies);
+  return getValuesFromCollection(collection, indices);
 };
 
 /**
- * Get a random set of `howMany` indicies for a collection of the specified size
+ * Get a random set of `howMany` indices for a collection of the specified size
  *
  * @param {number} collectionSize The length of the collection
- * @param {number} howMany How many random indicies to generate
- * @returns {number[]} An array of distict random indicies in the specified range
+ * @param {number} howMany How many random indices to generate
+ * @returns {number[]} An array of distinct random indices in the specified range
  * @private
  */
-function getRandomIndicies(collectionSize, howMany) {
+function getRandomIndices(collectionSize, howMany) {
   const set = new Set();
   for (let i = 0; i < howMany; i++) {
     const candidate = getRandomInt(0, collectionSize);
@@ -67,20 +73,29 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function getValuesFromCollection(collection, indicies) {
-  if (!indicies || indicies.length === 0) {
+/**
+ * Get values at the specified indices from the specified collection
+ *
+ * @param {AnyCollection<T>} collection The collection from which to get values
+ * @param {number[]} indices The indices within the collection to collect
+ * @returns {T[]} An array of the values that were collected
+ * @template T
+ * @private
+ */
+function getValuesFromCollection(collection, indices) {
+  if (!indices || indices.length === 0) {
     return [];
   }
 
   let i = 0, j = 0;
-  let indexToFind = indicies[j++];
+  let indexToFind = indices[j++];
   const ret = [];
   const iter = collection.keys();
   let current = iter.next();
-  while (!current.done && j <= indicies.length) {
+  while (!current.done && j <= indices.length) {
     if (i++ === indexToFind) {
       ret.push(current.value);
-      indexToFind = indicies[j++];
+      indexToFind = indices[j++];
     }
     current = iter.next();
   }

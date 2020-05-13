@@ -68,19 +68,19 @@ describe('.getValuesFromCollection', function () {
     assume(getValuesFromCollection).has.length(2);
   });
 
-  it('returns an empty array if indicies is null', function () {
+  it('returns an empty array if indices is null', function () {
     const result = getValuesFromCollection([1, 2, 3], null);
     assume(result).is.an('array');
     assume(result).has.length(0);
   });
 
-  it('returns an empty array if indicies is empty', function () {
+  it('returns an empty array if indices is empty', function () {
     const result = getValuesFromCollection([1, 2, 3], []);
     assume(result).is.an('array');
     assume(result).has.length(0);
   });
 
-  it('gets the correct set of indicies', function () {
+  it('gets the correct set of indices', function () {
     const result = getValuesFromCollection([0, 1, 2, 3, 4, 5], [0, 2, 5]);
     assume(result).deep.equals([0, 2, 5]);
   });
