@@ -1,5 +1,9 @@
 # `random-from-collection`
 
+## 1.1.1
+
+- Update deps
+
 ## 1.1.0
 
 - [#19] Bump dependencies, improve JSDoc
