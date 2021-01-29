@@ -4,7 +4,7 @@
   "description": "Get a random set of n distinct values from a standard collection (i.e. Map, Set, Array)",
   "main": "index.js",
   "scripts": {
-    "test": "nyc -x fixtures/ -x test.js mocha test.js",
+    "test": "nyc --reporter=lcov -x fixtures/ -x test.js mocha test.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test:debug": "mocha --inspect-brk test.js",
     "lint": "eslint --fix *.js fixtures/*.js",
