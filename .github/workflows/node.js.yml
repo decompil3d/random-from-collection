@@ -31,7 +31,7 @@ jobs:
         flag-name: node-${{ matrix.node-version }}
         parallel: true
   finish:
-    needs: CI
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Coveralls finished
